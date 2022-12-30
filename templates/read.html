@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+    {% if text %}
+        {% for i in text %}
+            <p>{{ i.sentence_for_translate }}</p>
+            <p class="text-success fw-bold">{{ i.sentence_translated }}</p>
+            <p class="fw-bold">{{ i.sentence_translated_by_user }}</p>
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>No translated yet</p>
+    {% endif %}
+{% endblock %}

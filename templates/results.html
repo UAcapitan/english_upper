@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+    <p>Level: <span class="fw-bold">{{ results.level }}</span></p>
+    <p>Points to the next level: <span class="fw-bold">{{ results.points }} / 500</span></p>
+    <p>Texts (new/finished): <span class="fw-bold">{{ results.texts }} / {{ results.texts_finished }}</span></p>
+{% endblock %}

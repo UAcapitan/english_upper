@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+    {% if form %}
+        {% if text %}
+            <p>{{ text.sentence_for_translate }}</p>
+            <form method="POST">
+                <input type="hidden" name="id" value="{{ text.id }}">
+                <textarea class="form-control" name="text" id="text_input" rows="7" placeholder="You translated sentence"></textarea>
+                <br>
+                <div class="d-flex justify-content-center mt_btn">
+                    <input type="submit" class="btn btn-success" id="send" value="Send">
+                </div>
+            </form>
+        {% else %}
+            <br>
+            <p class="text-center">You've translated text</p>
+            <div class="d-flex justify-content-center mt_btn">
+                <a href="/" class="btn btn-success">Main page</a>
+            </div>
+        {% endif %}
+    {% else %}
+        <p>{{ text.sentence_for_translate }}</p>
+        <p class="text-success fw-bold">{{ text.sentence_translated }}</p>
+        <p class="fw-bold">{{ text.sentence_translated_by_user }}</p>
+        <div class="d-flex justify-content-center mt_btn">
+            <a href="/text/{{ id }}/translate" class="btn btn-success">Next</a>
+        </div>
+    {% endif %}
+
+    <script>
+        try {
+            const input = document.getElementById("text_input");
+            input.addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                document.getElementById("send").click();
+            }
+            });
+        } catch {
+
+        };
+    </script>
+{% endblock %}

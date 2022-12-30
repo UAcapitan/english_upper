@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="POST">
+            <br>
+            <input class="form-control form-control-sm" type="text" name="title" placeholder="Title">
+            <br>
+            <textarea class="form-control form-control-sm" rows="24" name="text" placeholder="Text"></textarea>
+            <div class="d-flex justify-content-center mt_btn">
+                <input class="btn btn-success" type="submit" value="Add">
+            </div>
+        </form>
+    </div>
+{% endblock %}

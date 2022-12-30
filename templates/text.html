@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+    <h3>{{ text.title }}</h3>
+    <p class="text-secondary">{{ text.count_translated_sentences }} / {{ text.count_sentences }}, {{ text.status }}</p>
+    <p>
+        <a href="/text/{{ text.id }}/translate" class="btn btn-success">Translate</a>
+        <a href="/text/{{ text.id }}/read" class="btn btn-primary">Read</a>
+        <a href="/text/{{ text.id }}/remove" class="btn btn-danger">Remove</a>
+    </p>
+
+    <p>{{ text.text }}</p>
+{% endblock %}

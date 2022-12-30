@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}English Upper{% endblock %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-center">
+        <p><a href="/new" class="btn btn-success">New</a> <a href="/results" class="btn btn-primary">Results</a></p>
+    </div>
+
+    <hr>
+    <br>
+
+    <h3 class="text-center">Texts</h3>
+
+    {% if texts %}
+        {% for text in texts %}
+            <a href="/text/{{ text.id }}" class="text-decoration-none text-dark">
+                <div class="container div_borders">
+                    <div class="row">
+                        <div class="col-3 text-center">{{ text.count_translated_sentences }} / {{ text.count_sentences }}</div>
+                        <div class="col-9">{{ text.title }}</div>
+                    </div>
+                </div>
+            </a>
+
+            <br>
+        {% endfor %}
+    {% else %}
+        <p class="text-center">No new texts</p>
+    {% endif %}
+    <hr>
+    <br>
+
+    <h3 class="text-center">Finished texts</h3>
+    {% if texts_finished %}
+        {% for text in texts_finished %}
+            <a href="/text/{{ text.id }}" class="text-decoration-none text-dark">
+                <div class="container div_borders">
+                    <div class="row">
+                        <div class="col-3 text-center">{{ text.count_translated_sentences }} / {{ text.count_sentences }}</div>
+                        <div class="col-9">{{ text.title }}</div>
+                    </div>
+                </div>
+            </a>
+
+            <br>
+        {% endfor %}
+    {% else %}
+        <p class="text-center">No finished texts</p>
+    {% endif %}
+    <br>
+
+{% endblock %}
